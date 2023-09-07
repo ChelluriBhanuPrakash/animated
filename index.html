@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins',sans-serif;
+        }
+        body{
+            background-color: #eaeaea;
+        }
+        .header{
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            padding: 30px 8%;
+            background: transparent;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 100;
+        }
+        .logo{
+            font-size: 35px;
+            color: #222;
+            text-decoration: none;
+            opacity: 0;
+            animation: slideRight 1s ease forwards;
+            font-weight: bold;
+        }
+        .navbar a{
+            display: inline-flex;
+            font-size: 20px ;
+            color: #222;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 0 20px;
+            transition: 0.3s;
+            opacity: 0;
+            animation: slideTop .5s ease forwards;
+            animation-delay: calc(.2s * var(--i));
+        }
+        .navbar a:hover,
+        .navbar a.active{
+            color: #1743e3;
+        }
+        .social-media{
+            display: flex;
+            justify-content: space-between;
+            width: 150px;
+            height: 40px;
+        }
+        .social-media a{
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: transparent;
+            border: 2px solid transparent;
+            transform: rotate(45deg);
+            transition: 0.5s;
+            opacity: 0;
+            animation: slideSci .5s ease forwards;
+            animation-delay: calc(.2s * var(--i));
+        }
+        .social-media a:hover{
+            border-color: #eaeaea;
+        }
+        .social-media a i{
+            font-size: 24px;
+            color: #eaeaea;
+            transform: rotate(-45deg);
+        }
+        .home{
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 50px 8% 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .home-content{
+            /* background-color: seagreen; */
+            max-width: 630px;
+        }
+        .home-content h1{
+            font-size: 50px;
+            line-height: 1.2;
+            opacity: 0;
+            animation: slideBottom 1s ease forwards;
+            animation-delay: 1s;
+        }
+        .home-content h3{
+            font-size: 40px;
+            color: #1743e3;
+            opacity: 0;
+            animation: slideRight 1s ease forwards;
+            animation-delay: 1.3s;
+        }
+        .home-content p{
+            font-size: 16px;
+            margin: 15px 0 30px;
+            opacity: 0;
+            animation: slideLeft 1s ease forwards;
+            animation-delay: 1.6s;
+        }
+        .btn{
+            display: inline-block;
+            padding: 15px 30px;
+            background: #1743e3;
+            border: 2px solid #1743e3;
+            border-radius: 6px;
+            box-shadow: 0 0 10px rgba(0,0,0,.1);
+            font-size: 16px;
+            color: #eaeaea;
+            letter-spacing: 1px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: .5s;
+            opacity: 0;
+            animation: slideTop 1s ease forwards;
+            animation-delay: 2s;
+        }
+        .btn:hover{
+            background: transparent;
+            color: #1743e3;
+        }
+        .home-img{
+            position: relative;
+            width: 450px;
+            height: 450px;
+            transform: rotate(45deg);
+            right: -7%;
+        }
+        .home-img .rhombus{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #eaeaea;
+            border: 25px solid #1743e3;
+            box-shadow: -15px 15px 15px rgba(0,0,0,.3);
+            opacity: 0;
+            animation: zoomOut 1s ease forwards;
+            animation-delay: 1.6s;
+        }
+        .home-img .rhombus img{
+            position: absolute;
+            max-width: 750px;
+            top: 110px;
+            left: -250px;
+            transform: rotate(-45deg);
+            opacity: 0;
+            animation: car 1s ease forwards;
+            animation-delay: 2s;
+        }
+        .rhombus2{
+            position: absolute;
+            width: 700px;
+            height: 700px;
+            background: #1743e3;
+            transform: rotate(45deg);
+            top: -25%;
+            right: -20%;
+            z-index: -1;
+        }
+        @keyframes slideRight{
+            0%{
+                transform: translateX(-100px);
+                opacity: 0;
+            }
+            100%{
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes slideTop{
+            0%{
+                transform: translatey(100px);
+                opacity: 0;
+            }
+            100%{
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes slideSci{
+            0%{
+                transform: translateX(100px) rotate(45deg);
+                opacity: 0;
+            }
+            100%{
+                transform: translate(0) rotate(45deg);
+                opacity: 1;
+            }
+        }
+        @keyframes slideBottom{
+            0%{
+                transform: translatey(-100px);
+                opacity: 0;
+            }
+            100%{
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes slideLeft{
+            0%{
+                transform: translateX(100px);
+                opacity: 0;
+            }
+            100%{
+                transform: translateX(0);
+                opacity: 1;
+            }
+        }
+        @keyframes zoomOut{
+            0%{
+                transform: scale(1.1);
+                opacity: 0;
+            }
+            100%{
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        @keyframes car{
+            0%{
+                transform: translate(300px, -300px) scale(0) rotate(-45deg);
+                opacity: 0;
+            }
+            100%{
+                transform: translate(0, 0) scale(1) rotate(-45deg);
+                opacity: 1;
+            }
+        }
+    </style>
+
+</head>
+<body>
+    <div class="header">
+        <a href="" class="logo">Cars.</a>
+        <div class="navbar">
+            <a href="" style="--i:1" class="active">Home</a>
+            <a href="" style="--i:2">About</a>
+            <a href="" style="--i:3">Review</a>
+            <a href="" style="--i:4">Features</a>
+            <a href="" style="--i:5">Contact</a>
+        </div>
+        <div class="social-media">
+            <a href="" style="--i:1"><i class='bx bxl-twitter'></i></a>
+            <a href="" style="--i:2"><i class='bx bxl-facebook' ></i></a>
+            <a href="" style="--i:3"><i class='bx bxl-instagram-alt' ></i></a>
+        </div>
+    </div>
+
+    <section class="home">
+        <div class="home-content">
+            <h1>Car Deeling Experience</h1>
+            <h3>Redefined</h3>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Est, aperiam. Porro, inventore veniam neque necessitatibus mollitia nulla maxime eius? Ullam eum quas incidunt facere pariatur unde molestias enim facilis adipisci.</p>
+            <a href="#" class="btn">Explore Cars</a>
+        </div>
+        <div class="home-img">
+            <div class="rhombus">
+                <img src="./car.png" alt="">
+            </div>
+        </div>
+        <div class="rhombus2">
+
+        </div>
+    </section>
+</body>
+</html>
